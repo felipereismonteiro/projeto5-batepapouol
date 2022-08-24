@@ -6,12 +6,3 @@ function alerta() {
     console.log(input);
 }
 
-function displayShow() {
-    const element = document.querySelector(".telaDeTras")
-    element.classList.remove("display")
-}
-
-function displayHidden() {
-    const element = document.querySelector(".telaDeTras")
-    element.classList.add("display")
-}

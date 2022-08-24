@@ -61,22 +61,7 @@ footer img {
 
 /* sideBar */
 
-div .telaDeTras {
-    position: absolute;
-    width: 100%;
-    height: 1000000px;
-    top: -100px;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 1;
-}
 
-.sideBar {
-    width: 65%;
-    position: absolute;
-    right: 0;
-    height: 100%;
-    background-color: #FFFFFF;
-}
 
 /* Nav */
 
