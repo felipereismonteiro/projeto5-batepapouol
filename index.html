@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +9,60 @@
     <link rel="stylesheet" href="assets/reset.css">
     <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
-    <header></header><!--header-->
-    <footer></footer><!--footer-->
+    <header>
+        <div class="oulLogo">
+            <img src="img/logo 1.png" alt="logo uol">
+        </div>
+        <!--oulLogo-->
+        <div class="peopleLogo" onclick="displayShow()">
+            <img src="img/Vector.png" alt="people logo">
+        </div>
+        <!--peopleLogo-->
+    </header>
+    <!--header-->
+    
+    <nav>
+        <ul class="lista">
+            <li>
+                <div class="entrou">
+                    <div class="text"><span class="timer">(09:21:45)</span><strong class="nome">Joao</strong><span class="status">entra na sala...</span></div>
+                </div><!--entrou-->
+            </li>
+            <li>
+                <div class="todos">
+                    <div class="text"><span class="timer">(09:21:45)</span><strong class="nome">Joao</strong><span class="status">entra na sala...</span></div>
+                </div><!--entrou-->
+            </li>
+            <li>
+                <div class="todos">
+                    <div class="text"><span class="timer">(09:21:45)</span><strong class="nome">Joao</strong><span class="status">entra na sala...</span></div>
+                </div><!--entrou-->
+            </li>
+            <li>
+                <div class="reservado">
+                    <div class="text"><span class="timer">(09:21:45)</span><strong class="nome">Joao</strong><span class="status">entra na sala...</span></div>
+                </div><!--entrou-->
+            </li>
+            <li>
+                <div class="entrou">
+                    <div class="text"><span class="timer">(09:21:45)</span><strong class="nome">Joao</strong><span class="status">entra na sala...</span></div>
+                </div><!--entrou-->
+            </li>
+        </ul><!--lista-->
+    </nav>
+    <div>
+        <div class="telaDeTras display" onclick="displayHidden()">
+            <div class="sideBar"></div><!--sideBar-->
+        </div><!--sideBar-->
+    </div>
+    <footer>
+        <input type="text" placeholder="Escreva aqui...">
+        <img onclick="alerta()" src="img/Arrow.png" alt="">
+    </footer>
+    <!--footer-->
+
+    <script src="js/js.js"></script>
 </body>
 </html>
