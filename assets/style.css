@@ -1,6 +1,6 @@
 body {
     position: relative;
-    background-color: #E5E5E5;
+    background-color: #F3F3F3;
 }
 
 .display {
@@ -74,10 +74,10 @@ ul:last-child {
 }
 
 ul.lista {
-    overflow-y: scrool;
+    overflow: scroll;
 }
 
-.entrou {
+.Entrou {
     width: 100%;
     display: flex;
     margin: 5px 0;
@@ -85,7 +85,7 @@ ul.lista {
     background-color: #DCDCDC;
 }
 
-.todos {
+.Todos {
     width: 100%;
     display: flex;
     margin: 5px 0;
@@ -93,7 +93,7 @@ ul.lista {
     background-color: #FFFFFF;
 }
 
-.reservado {
+.Reservadamente {
     width: 100%;
     display: flex;
     margin: 5px 0;
