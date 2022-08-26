@@ -94,6 +94,14 @@ ul.lista {
     background-color: #FFFFFF;
 }
 
+.todos {
+    width: 100%;
+    display: flex;
+    margin: 5px 0;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+
 .Reservadamente {
     width: 100%;
     display: flex;

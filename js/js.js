@@ -9,12 +9,11 @@ function postar(name) {
     postando.then(funcionou).catch(deuRuim)
 }
 
-function funcionou() {
-    alert("foi")
+function funcionou() { //se passar tudo corretamente ele mantem conexao
     setInterval(manterConexao, 5000)
 }
 
-function deuRuim() {
+function deuRuim() { // se der ruim
     nome = prompt("Nos diga seu lindo nome!!!")
     server = { name: nome }
     postar(server)
@@ -42,21 +41,29 @@ function buscandoMensagens() {
 }
 
 function chegou(res) {
-    let mensagens = []
     const lista = document.querySelector(".lista")
 
-    mensagens.push(res.data)
-    // Colocando as mensagens no array 
-    // Criando um novo array sempre que chega mensagem nova
-
+    const novoArray = res.data.filter(foi)
+    function foi (res){
+        if (res.to === "Todos" || res.to === "todos" || res.to === server.name ) {
+            console.log(res.to)
+            return true
+        } else {
+            console.log(res)
+            return false
+        }
+    }
+    console.log(novoArray)
+    // Filtrando as mensagens para passar soh as mensagens privadas pra vc ou para todos
+    
     // Colocando as mensagens na tela 
     lista.innerHTML = ""
-    for (i = 0; i < mensagens[0].length; i++) {
+    for (i = 0; i < novoArray.length; i++) {
 
 
         lista.innerHTML += `<li>
-                        <div class="${mensagens[0][i].to}">
-                            <div class="text"><span class="timer">(${mensagens[0][i].time})</span><strong class="nome">${mensagens[0][i].from}</strong><span class="status">${mensagens[0][i].text}</span></div>
+                        <div class="${novoArray[i].to}">
+                            <div class="text"><span class="timer">(${novoArray[i].time})</span><strong class="nome">${novoArray[i].from}</strong><span class="status">${novoArray[i].text}</span></div>
                         </div>
                     </li>`
     }
