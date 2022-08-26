@@ -1,11 +1,37 @@
-function alerta() {
+// Nome do usuario
+let postando
+let nome = prompt("Nos diga seu lindo nome!!!")
+let server = { name: nome }
+postar(server)
+
+function postar(name) {
+    postando = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", name)
+    postando.then(funcionou).catch(deuRuim)
+}
+
+function funcionou() {
+    alert("foi")
+    setInterval(manterConexao, 5000)
+}
+
+function deuRuim() {
+    nome = prompt("Nos diga seu lindo nome!!!")
+    server = { name: nome }
+    postar(server)
+}
+
+function manterConexao() { // Mantendo conexao
+    axios.post("https://mock-api.driven.com.br/api/v6/uol/status", server)
+}
+
+
+function alerta() { // Enviando mensagem
     const input = document.querySelector("footer input").value;
     console.log(input);
 }
 
+
 // Buscando mensagens
-
-
 buscandoMensagens()
 
 setInterval(buscandoMensagens, 4000)
@@ -17,11 +43,11 @@ function buscandoMensagens() {
 
 function chegou(res) {
     let mensagens = []
-    console.log(mensagens)
     const lista = document.querySelector(".lista")
 
     mensagens.push(res.data)
-    // Colocando as mensagens no array, criando um novo array sempre que chega mensagem nova
+    // Colocando as mensagens no array 
+    // Criando um novo array sempre que chega mensagem nova
 
     // Colocando as mensagens na tela 
     lista.innerHTML = ""

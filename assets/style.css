@@ -74,7 +74,8 @@ ul:last-child {
 }
 
 ul.lista {
-    overflow: scroll;
+    overflow-y: scrool;
+    overflow-x: hidden;
 }
 
 .Entrou {
