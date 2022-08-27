@@ -46,6 +46,8 @@ footer input {
     width: 80%;
     margin: 10px;
     border: none;
+    outline: none;
+    font-size: 100%;
 }
 
 footer input::placeholder {
@@ -56,12 +58,8 @@ footer input::placeholder {
 }
 
 footer img {
-    margin: 10px;
+    margin: 20px;
 }
-
-/* sideBar */
-
-
 
 /* Nav */
 

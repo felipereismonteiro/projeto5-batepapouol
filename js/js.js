@@ -24,10 +24,17 @@ function manterConexao() { // Mantendo conexao
     axios.post("https://mock-api.driven.com.br/api/v6/uol/status", server)
 }
 
-
 function alerta() { // Enviando mensagem
     const input = document.querySelector("footer input").value;
-    console.log(input);
+    const mensagem = {
+        from: server.name,
+        to: "Todos",
+        text: input,
+        type: "message" // ou "private_message" para o bônus
+    }
+    const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", mensagem)
+    promise.then(buscandoMensagens)
+    promise.catch(() => window.location.reload())
 }
 
 setInterval(buscandoMensagens, 4000) // Buscando mensagens a cada 4 segundos
@@ -44,19 +51,34 @@ function chegou(res) {
     function foi (res){
         if (res.to === "Todos" || res.to === "todos" || res.to === server.name ) {
             return true
-        } else {
+        }else {
             return false
         }
     } // Filtrando as mensagens para passar soh as mensagens privadas pra vc ou para todos
-    
+
     // Colocando as mensagens na tela 
     lista.innerHTML = ""
     for (i = 0; i < novoArray.length; i++) {
-        lista.innerHTML += `<li>
-                        <div class="${novoArray[i].to}">
-                            <div class="text"><span class="timer">(${novoArray[i].time})</span><strong class="nome">${novoArray[i].from}</strong><span class="status">${novoArray[i].text}</span></div>
-                        </div>
-                    </li>`
+
+        if (novoArray[i].text == "entra na sala..." || novoArray[i].text == "sai da sala...") {
+            novoArray[i].to = "Entrou"
+        } else if(novoArray[i].type == "private_message") {
+            lista.innerHTML += 
+            `<li>
+                <div class="Reservadamente">
+                    <div class="text"><span class="timer">(${novoArray[i].time})</span><strong class="nome">${novoArray[i].from}</strong><span class="status">reservadamente para <strong class="nome">${novoArray[i].to}: </strong></span><span class="status">${novoArray[i].text}</span></div>
+                </div>
+            </li>`
+        }   // Quando entrar ou sair da sala para ter um fundo cinza ja que o to fica como todos
+            // O resto das mensagens fica como Todos normalmente
+            
+
+        lista.innerHTML += 
+        `<li>
+            <div class="${novoArray[i].to} ${novoArray[i].text}">
+                <div class="text"><span class="timer">(${novoArray[i].time})</span><strong class="nome">${novoArray[i].from}</strong><span class="status">${novoArray[i].text}</span></div>
+            </div>
+        </li>`
     }
     lista.lastChild.scrollIntoView()
 }
