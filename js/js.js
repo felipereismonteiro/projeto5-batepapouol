@@ -62,7 +62,7 @@ function chegou(res) {
 
         if (novoArray[i].text == "entra na sala..." || novoArray[i].text == "sai da sala...") {
             novoArray[i].to = "Entrou"
-        } else if(novoArray[i].type == "private_message" && novoArray[i].to === server.name) {
+        } else if(novoArray[i].type == "private_message") {
             lista.innerHTML += 
             `<li>
                 <div class="Reservadamente">
